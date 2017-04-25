@@ -1,0 +1,8 @@
+#services:
+#    app.command.scraper.scrape_dnd_spells:
+#        class: AppBundle\Command\Scraper\ScrapeDndSpellsCommand
+#        arguments:
+#          - "@goutte_client"
+#          - "@doctrine"
+#        tags:
+#            - { name: console.command }
