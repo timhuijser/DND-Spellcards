@@ -12,4 +12,21 @@ use Doctrine\ORM\EntityRepository;
  */
 class SpellRepository extends EntityRepository
 {
+    /**
+     * @param $characterClass
+     *
+     * @return array
+     */
+    public function findByCharacterClass($characterClass)
+    {
+        $qb = $this->createQueryBuilder('spells');
+
+        $qb
+            ->leftJoin('spells.characterClasses', 'cc')
+            ->andWhere('cc.slug = :characterClass')
+            ->setParameter('characterClass', $characterClass)
+        ;
+
+        return $qb->getQuery()->getResult();
+    }
 }
