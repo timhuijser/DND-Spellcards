@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="wrapper">
+        <div id="container">
+            <b>Spells by character</b>
+
+            {% for characterClass in characterClasses %}
+                <a href="{{ path('spellsForCharacterClass', {'characterClass': characterClass.slug}) }}">{{ characterClass.name }}</a>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

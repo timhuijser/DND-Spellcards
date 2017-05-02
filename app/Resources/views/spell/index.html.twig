@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="wrapper">
+        <div id="container">
+            {% for spell in spells|slice(0,10) %}
+                {{ include('card/single.html.twig', { 'spell': spell }) }}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
